@@ -73,4 +73,4 @@ The content is organized according to the logical learning path in SQL Server, s
 ---
 
 ✨ Feedback is always welcome!  
-📬 Reach out to me on [LinkedIn](https://LinkedIn.com/Sondos-Mohamed-Said/DB-Tasks) for collaboration or suggestions.
+📬 Reach out to me on [LinkedIn](https://www.linkedin.com/in/sondos-mohamed-said/) for collaboration or suggestions.
