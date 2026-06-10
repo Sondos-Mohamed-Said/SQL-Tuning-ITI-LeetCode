@@ -23,7 +23,7 @@ Each challenge folder includes:
 
 ## 🌟 Featured Tuning Case Studies
 
-* **[Find Invalid IP Addresses (Medium) 🛠️](./LeetCode-Optimization/Medium/Find-Invalid-IP-Addresses/)**
+* **[Find Invalid IP Addresses (Medium) 🛠️](./LeetCode-Optimization/Hard/Find-Invalid-IP-Addresses/)**
   * **Concepts tuned:** Swapped heavy Window Functions (`OVER`) with high-speed Early Filtering pipelines, utilized `CROSS APPLY` + `STRING_SPLIT`, and implemented absolute Type Safety using `TRY_CAST`.
   * **Result:** Successfully optimized execution runtime from **423ms** down to **302ms** while ensuring production-grade stability against corrupted data logs.
 
