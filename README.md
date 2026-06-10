@@ -1,76 +1,38 @@
-# SQL Server Practice - ITI Course
+# 🏎️ SQL Tuning Hub: ITI & LeetCode Challenges
 
-This repository contains my practice files and exercises from the **SQL Server course at ITI**.  
-The content is organized according to the logical learning path in SQL Server, starting from the basics up to advanced topics.
+Welcome to my advanced SQL repository! This space serves as a comprehensive portfolio containing my database engineering tasks from the **Information Technology Institute (ITI)** alongside rigorous query optimization challenges from **LeetCode**.
 
----
-
-## 📚 Learning Path
-
-### 1️⃣ Basics
-- **2.2 Simple Queries.sql** → SELECT, WHERE, ORDER BY, DISTINCT  
+Rather than just writing queries that return the correct results, my core focus here is **Performance Tuning, Execution Plan Analysis, Type Safety, and Resource Efficiency (T-SQL)**.
 
 ---
 
-### 2️⃣ Data Manipulation (DML)
-- **4.1 DML.sql** → INSERT, UPDATE, DELETE  
+## 📁 Repository Structure
+
+### 🎓 1. ITI Tasks & Modules
+This section contains structured database assignments, architectural designs, and hands-on labs completed during my intensive technical training at ITI. The files are organized directly by module titles and topics to track academic and practical progress.
+
+### 🚀 2. LeetCode Advanced Tuning (`/LeetCode-Optimization`)
+This is a dedicated space where I tackle algorithmic SQL challenges, bench-marking execution times, and document how the **SQL Server Query Optimizer** behaves under pressure. 
+
+Each challenge folder includes:
+1. The baseline solution.
+2. Performance bottleneck identification (e.g., catching expensive Table Spools or implicit conversions).
+3. The final optimized, production-ready script.
 
 ---
 
-### 3️⃣ Joins
-- **3.1 Joins.sql** → INNER JOIN, LEFT JOIN, RIGHT JOIN, FULL OUTER JOIN, CROSS JOIN  
+## 🌟 Featured Tuning Case Studies
+
+* **[Find Invalid IP Addresses (Medium) 🛠️](./LeetCode-Optimization/Medium/Find-Invalid-IP-Addresses/)**
+  * **Concepts tuned:** Swapped heavy Window Functions (`OVER`) with high-speed Early Filtering pipelines, utilized `CROSS APPLY` + `STRING_SPLIT`, and implemented absolute Type Safety using `TRY_CAST`.
+  * **Result:** Successfully optimized execution runtime from **423ms** down to **302ms** while ensuring production-grade stability against corrupted data logs.
 
 ---
 
-### 4️⃣ Aggregation & Functions
-- **5.2 Aggregation.sql** → SUM, COUNT, AVG, MIN, MAX, GROUP BY, HAVING  
-- **8.1 Functions.sql** → Built-in Functions, User-Defined Functions  
+## 🛠️ Tech Stack & Tooling
+* **Database Management Systems:** Microsoft SQL Server (MSSQL)
+* **Development Environments:** SQL Server Management Studio (SSMS)
+* **Core Practices:** Query Execution Plan Analysis, Conditional Aggregations, Performance Tuning (Tuning Indexes, Table Spools, and Joins).
 
 ---
-
-### 5️⃣ Window Functions
-- **5.1 Window Function.sql** → ROW_NUMBER, RANK, DENSE_RANK, NTILE, PARTITION BY  
-
----
-
-### 6️⃣ Schema & Rules
-- **6.1 Schema&Rule.sql** → Schemas, Constraints (PK, FK, UNIQUE, CHECK, DEFAULT), Rules  
-
----
-
-### 7️⃣ Views & Indexes
-- **7.1 Views & Index.sql** → Creating and Managing Views, Clustered & Non-Clustered Indexes  
-
----
-
-### 8️⃣ Procedures & Triggers
-- **9.1 Procedure & Trigger.sql** → Stored Procedures, Triggers  
-
----
-
-### 9️⃣ Data Control Language (DCL)
-- **10.1 Cursor & DCL.sql** → GRANT, REVOKE, DENY  
-
----
-
-### 🔟 Cursor
-- **10.1 Cursor & DCL.sql** → Cursor examples  
-
----
-
-## 🎯 Objectives
-
-- Practice SQL Server through step-by-step exercises.  
-- Cover fundamental and advanced concepts.  
-- Build a reference repository for interviews and future projects.  
-
----
-
-## 🛠 Tools Used
-- SQL Server Management Studio (SSMS)  
-- Microsoft SQL Server  
-
----
-
-✨ Feedback is always welcome!  
-📬 Reach out to me on [LinkedIn](https://www.linkedin.com/in/sondos-mohamed-said/) for collaboration or suggestions.
+📫 *Connect with me on LinkedIn to discuss Data Analytics, AI Agent workflows, or Database Engineering!*
