@@ -5,20 +5,43 @@
 📈 Objective: Calculate the cancellation rate of unbanned users using optimized join order and early predicates.
 ===================================================================================================
 
-🗄️ OPTIMIZATION JOURNEY & PREDICTIVE BOTTLENECKS:
+🗄️ OPTIMIZATION JOURNEY & PERFORMANCE ARCHIVES:
 -------------------------------------------------
-⚠️ The Inline Case-Filter Trap:
-   Placing filters like (T.request_at BETWEEN ...) inside conditional aggregations (COUNT(CASE WHEN)) 
-   forces the Query Engine to perform dense joins on the ENTIRE dataset before evaluating conditions row-by-row.
+
+🚀 Approach 1: The Inline Case-Filter (Initial Attempt)
+   - Vulnerability: Placing filters inside COUNT(CASE WHEN) forces dense joins on the ENTIRE dataset 
+     before evaluating conditions row-by-row, heavy memory spooling.
    
-🚀 The Optimized Approach:
-   Shifting filters to the WHERE clause unlocks "Predicate Pushdown". The SQL Server Query Optimizer 
-   filters the underlying tables FIRST, stripping out banned users and out-of-range dates, 
-   and then executes low-overhead INNER JOINS on the pruned subsets.
+   [Code Archive]:
+   -- WITH SONDOS_SOL AS (
+   --     SELECT  T.request_at ,COUNT(
+   --     CASE WHEN 
+   --     (C.banned ='NO' AND D.banned ='NO')
+   --     THEN 1
+   --     ELSE NULL
+   --     END) AS Total_Trips,
+   --     
+   --     COUNT(
+   --     CASE WHEN (
+   --     T.status = 'cancelled_by_client' 
+   --     OR T.status = 'cancelled_by_driver')
+   --     AND C.banned ='NO' 
+   --     AND D.banned ='NO' AND T.request_at BETWEEN '2013-10-01' and '2013-10-03'
+   --     THEN 1
+   --     ELSE NULL
+   --     END ) AS num_of_canceled
+   --     FROM Trips T
+   --     LEFT JOIN Users C
+   --     ON T.client_id = C.users_id 
+   --     LEFT JOIN Users D
+   --     ON T.client_id = D.users_id 
+   --     GROUP BY T.request_at
+   -- ) SELECT request_at AS Day , ROUND(CAST(num_of_canceled AS DECIMAL(10,2)) / Total_Trips, 2) AS 'Cancellation Rate'
+   -- FROM SONDOS_SOL
 */
 
 -- ===================================================================================================
--- 🏆 THE WINNING PRODUCTION SOLUTION (OPTIMAL TUNING)
+-- 🏆 APPROACH 2: THE WINNING PRODUCTION SOLUTION (OPTIMAL TUNING)
 -- ===================================================================================================
 -- Strategy: Predicate Pushdown (WHERE Filters) + High-Speed INNER JOIN Pipelines
 -- Math Safety: Multiplied by 1.0 to enforce high-precision Float/Decimal division before rounding.
